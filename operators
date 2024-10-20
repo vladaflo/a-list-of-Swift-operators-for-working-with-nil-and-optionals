@@ -1,0 +1,50 @@
+// ? (Optional)
+var name: String? = "Alice"
+var anotherName: String? = nil
+
+// ! (Force Unwrapping)
+var name: String? = "Alice"
+print(name!) // Prints "Alice"
+
+// ?? (Nil-Coalescing Operator)
+let name: String? = nil
+let defaultName = name ?? "Unknown"
+print(defaultName) // Prints "Unknown"
+
+// as? (Optional Type Casting)
+let bird: Any = "Sparrow"
+if let birdName = bird as? String {
+    print(birdName) // Prints "Sparrow"
+}
+
+// as! (Forced Type Casting)
+let bird: Any = "Sparrow"
+let birdName = bird as! String
+print(birdName) // Prints "Sparrow"
+
+// if let (Optional Binding)
+let name: String? = "Alice"
+if let unwrappedName = name {
+    print(unwrappedName) // Prints "Alice"
+}
+
+// guard let (Optional Binding with Early Exit)
+func greet(_ name: String?) {
+    guard let unwrappedName = name else {
+        print("Name is nil")
+        return
+    }
+    print("Hello, \(unwrappedName)!")
+}
+greet(nil) // Prints "Name is nil"
+greet("Alice") // Prints "Hello, Alice!"
+
+// Optional Chaining
+var person: Person? = Person(name: "Alice")
+let nameLength = person?.name.count
+print(nameLength) // Prints the length of the name or nil
+
+// ??= (Nil-Coalescing Assignment)
+var name: String? = nil
+name ??= "Unknown"
+print(name) // Prints "Unknown"
